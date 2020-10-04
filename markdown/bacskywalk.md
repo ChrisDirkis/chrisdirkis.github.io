@@ -1,5 +1,3 @@
-# BAC Skywalk
-
 BAC Skywalk is a VR project built for Brisbane Airport Coroporation, built to explore different wayfinding options in a spatial environment. 
 
 

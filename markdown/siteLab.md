@@ -1,4 +1,3 @@
-# siteLab
 siteLab is a Unity framework that allows Unsigned Studio to easily develop high quality real-time visualisations. It provides a consistent look and feel across projects, with common tools and affordances. siteLab can also be customised with project specific tools and branding.
                 
 That's the elevator pitch, but almost every word hides a lot of interesting detail. Let's unpack it and see what we can take away.
