@@ -4,7 +4,7 @@ That's the elevator pitch, but almost every word hides a lot of interesting deta
 
 *If you’re interested in learning about the history of siteLab from the original creator, Michael Gardiner, you can watch that [here.](https://www.youtube.com/watch?v=5Tjgg1lkJZM)*
 
-*This article is incomplete. Feel free to reach out if you're interested in hearing more, my contact details are in the header.*
+*This article was last updated on 2020-10-05. Feel free to reach out if you're interested in hearing more, my contact details are in the header.*
 
 ## The framework itself
 When we talk about siteLab, we often talk about the projects that we build using it: University of Melbourne WEBS, siteLab City, etc. This is only half of the story. siteLab is also a set of tools inside Unity that streamline the workflow of building these projects. 
