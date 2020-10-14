@@ -1,6 +1,6 @@
 Particulate is a Unity plugin to render Potree formatted pointclouds. It can stream pointclouds of any size or level of detail to any device, without impacting framerates or quality.
 
-*This article was last updated on 2020-10-05. Feel free to reach out if you're interested in hearing more, my contact details are in the header.*
+*This article was last updated on 2020-10-05. Feel free to reach out if you're interested in hearing more, my contact details are on the homepage.*
 
 ## Motivation
 Particulate was a fun project to build, both because it was technically involved and because it directly addressed specific business problems that both Unsigned Studio and Aurecon faced. On the Unsigned side, we had projects with massive amounts of data, and no feasible way to deliver them on low-end client devices, like cheap laptops and iPads. On the Aurecon side, we had clients and teams capturing so much asset data, including full site scans, but they were struggling to utilise this deluge of unstructured data.
