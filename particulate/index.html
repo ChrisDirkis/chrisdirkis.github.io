@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/images/favicon.ico?5" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0A090D" />
+
+        <meta property="og:title" content="Chris Dirkis" />
+        <meta property="og:type" content="website" />
+        <meta property="og:mage" content="/images/og_1.png" />
+
+
+        <meta
+            name="description"
+            content="Personal site for Chris Dirkis"
+        />
+        <link rel="apple-touch-icon" href="/images/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <title>Chris Dirkis</title>
+        <link rel="stylesheet" href="/post.css">
+    </head>
+    <body>
+        <div class="header-container">
+            <h1><a href="/" >Chris Dirkis</a></h1>          
+            <div class="header">    
+                <h1><a href="/" >Chris Dirkis</a></h1>
+            </div>
+        </div>
+        <div class="content-container">            
+            <div class="article-title">
+                <div class="title-text">
+                    <h1>Particulate</h1>
+                </div>
+                <div class="title-image" >
+                    <img src=/particulate/particulate_1.png alt="" />           
+                    <div class="title-image-overlay"></div>
+                    
+                    <div class="title-text">
+                        <h1>Particulate</h1>
+                    </div>    
+                </div>
+            </div>
+            <div class="content">
+                <em>2020-10-05 1200</em>
+                <div style="width: 100%; max-width: 800px;">
+                    <p>Particulate is a Unity plugin to render Potree formatted pointclouds. It can stream pointclouds of any size or level of detail to any device, without impacting framerates or quality.</p>
+<p><em>This article was last updated on 2020-10-05. Feel free to reach out if you're interested in hearing more, my contact details are on the homepage.</em></p>
+<h2>Motivation</h2>
+<p>Particulate was a fun project to build, both because it was technically involved and because it directly addressed specific business problems that both Unsigned Studio and Aurecon faced. On the Unsigned side, we had projects with massive amounts of data, and no feasible way to deliver them on low-end client devices, like cheap laptops and iPads. On the Aurecon side, we had clients and teams capturing so much asset data, including full site scans, but they were struggling to utilise this deluge of unstructured data.</p>
+<p>From this lens, integrating a point cloud viewer into Unity and siteLab was an obvious move. Being able to stream model data at varying levels of detail was perfect for a "build once, deliver anywhere" dream, internal teams suddenly found that their data was more valuable, and overall it would increase our ability to get siteLab into client's hands, which has always been one of the biggest drivers of siteLab's growth. Clients are much more inventive than we could ever be, and they understand their own problems more than we do!</p>
+<p>We had previously delivered one point cloud to a client through <a href="https://github.com/potree/potree">Potree</a>, a web based point cloud streaming app and associated data format. Potree's data format is very well described and their viewer is incredibly fast, even in Javascript in the browser on low-end devices. As such, we decided to use Potree as the basis of our point cloud viewer, ingesting clouds in the same format and rendering using similar mechanisms.</p>
+<h2>Implementation</h2>
+<p><em>I'm not sure how much I can talk about this publically, so hold tight. If you're interested, please get in contact with me, details in the header.</em></p>
+<h2>Selection</h2>
+<p>Since one of the major drivers of deliviering point clouds is to reduce the geometry on device, using tagged individual collision geometry for object selection (eg. clicking on a fire hydrant to get an ID that can be linked to BIM data) is a hard choice to stomach. We've developed an alternative approach with much lower runtime cost. Instead of having an individual collider and BIM data component for each object, using a 3DS Max plugin we generate one single optimised mesh for the entire geometry, with object IDs encoded in vertex colours and a map from ID to BIM data exported separately. With this, whenever we want to inspect BIM data, we can render <em>just the optimised mesh</em> (aligned with the pointcloud), capture the screen region around the cursor, and extract the ID from the vertex colour, which we can use to look up the BIM data. </p>
+<p>Most of the work is on the Max plugin side, and the Unity component is inspired by the method Potree uses for point selection. We're very excited to deliver this on the next point cloud project that we win.</p>
+<h2>Future steps</h2>
+<p>In future, I'm interested in implementing eye-dome lighting, which is roughly the point cloud equivalent of edge detection or screen-space ambient occlusion (SSAO). Unfortunately, Unity doesn't write to the depth texture when using geometry textures, so there's a number of steps to go to generate the correct fallback/shadow caster path so we can access that depth texture. </p>
+<p>The other part I'm looking forward to working on is generating satisfying collision geometry using the point cloud as a base. This is useful for navigating the cloud in VR -- while selection on points can be done in screen-space for clicking, it won't work nearly as well for a raycasted teleporter arc. Meshes can be generated offline, and meshing point cloud geometry is a well known problem, but there are downsides: the geometry is fairly heavy and dirty, the time requirement is high, and it's offline. A real time/load time solution would be beneficial for loading arbitrary clouds.</p>
+                </div>
+            </div>
+        </div>
+        <div class="prev-next">
+            
+            <div style="flex: 1 0 auto;"></div>
+            <a href='/bac-skywalk'>Next</a>
+        </div>
+    </body>
+</html>
